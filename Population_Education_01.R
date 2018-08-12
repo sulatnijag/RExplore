@@ -20,7 +20,10 @@ pop_edu <- pop_edu %>% mutate_at(vars(cols), funs(as.numeric(.)) )
 
 filter(pop_edu , grepl("information technology", pop_edu$Course, ignore.case=T)) %>% 
   select(-Gender,-school) %>%
-  group_by(Course) %>% summarise_all(sum) %>% View()
+  group_by(Course) %>% summarise_all(sum) %>% 
+  mutate(Total=rowSums(select(.,-Course) ) ) %>%
+  mutate_at(c("1993","1994"), funs(my_sum=sum, my_min=min)) %>%
+  View()
 
 
 
