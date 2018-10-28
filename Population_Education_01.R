@@ -26,6 +26,10 @@ filter(pop_edu , grepl("information technology", pop_edu$Course, ignore.case=T))
   View()
 
 
+x <- matrix(NA, 5,5)
 
-
+for(j in 1:5){
+  browser()
+  a <- x[1,j]
+}
           
